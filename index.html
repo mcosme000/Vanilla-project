@@ -23,28 +23,31 @@
       <!-- - - - ROW 1 // HEADER - - - -->
       <header class="row">
         <div class="col city">
-          <h3>City</h3>
-          <p>Local time</p>
+          <h3 id="cityName">City</h3>
+          <p id="Time">Local time</p>
         </div>
         <div class="col form">
           <form action="" id="search-form">
-            <input type="text" placeholder="Search for a city" />
+            <input type="text" placeholder="Search for a city" id="input" />
             <input type="submit" value="Search" />
           </form>
         </div>
       </header>
       <!-- - - - ROW 2 // SECTION - - - -->
       <section class="row">
-        <div class="col tempSection">
+        <div class="col iconSection">
           <p><i class="fas fa-cloud-showers-heavy"></i></p>
-          <p>
-            24 <span class="celsius"> ºC </span> <span class="far">Fa</span>
-          </p>
         </div>
-        <div class="col infoSection">
-          <p>Humidity</p>
-          <p>Wind</p>
-          <p>Other</p>
+        <div class="col rightSection">
+          <div class="temperature">
+            <p id="tempValue">
+              24 <span class="celsius"> ºC </span> <span class="far">Fa</span>
+            </p>
+          </div>
+          <div class="infoSection">
+            <p>Humidity: <span id="humidity"></span></p>
+            <p>Main: <span id="description"></span></p>
+          </div>
         </div>
       </section>
       <!-- - - - ROW 3 // FOOTER - - - -->
@@ -77,11 +80,14 @@
       </footer>
       <!-- - - - ROW 4 - - - -->
       <div class="row links">
-        <div class="col">
+        <div class="col location">
           <a href="#" class="geolocation">📍Geolocation</a>
+          <p>Estamos en Tokyo✨</p>
         </div>
-        <div class="github">
-          <a href="#">Github</a>
+        <div class="col github">
+          <a href="https://github.com/mcosme000"
+            ><i class="fab fa-github"></i
+          ></a>
         </div>
       </div>
     </div>

@@ -35,15 +35,6 @@ footer {
   margin: 10px;
 }
 
-.links {
-  margin: 0px;
-  border: 1px solid black;
-  padding: 20px 30px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 h2 {
   padding: 10px;
   text-align: center;
@@ -106,35 +97,34 @@ form input[type="submit"] {
 
 section {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-section .tempSection {
-  width: 50%;
+section .rightSection {
+  width: 80%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.tempSection i,
-.tempSection p {
-  font-size: 40px;
+.iconSection i,
+.rightSection #tempValue {
+  font-size: 50px;
 }
 
 span {
   font-size: 15px;
 }
-section .infoSection {
-  width: 50%;
-}
 
 @media (max-width: 500px) {
-  section {
-    flex-direction: column;
+  .iconSection i,
+  .rightSection #tempValue {
+    font-size: 30px;
   }
-
-  section .tempSection,
-  section .infoSection {
-    width: 100%;
+  .infoSection p,
+  .infoSection span {
+    font-size: 13px;
   }
 }
 
@@ -142,7 +132,7 @@ section .infoSection {
 
 footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: var(--secondary);
 }
 
@@ -169,5 +159,45 @@ footer .col {
 
   footer .col i {
     font-size: 30px;
+  }
+}
+
+/* - - -  LINKS - - - */
+
+.links {
+  margin: 0px;
+  padding: 5px;
+  background-color: rgb(61, 60, 60);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: monospace;
+}
+
+.links .location {
+  display: flex;
+}
+.links a {
+  text-decoration: none;
+  color: var(--white);
+  margin: 0px 20px;
+}
+
+.links i {
+  font-size: 25px;
+}
+
+.links a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 480px) {
+  .links .location {
+    display: flex;
+    flex-direction: column;
+  }
+  .links p {
+    margin: 0px 20px;
   }
 }
