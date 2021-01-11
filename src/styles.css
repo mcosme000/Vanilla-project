@@ -29,10 +29,8 @@ body {
   }
 }
 header,
-section,
-footer {
-  border: 1px solid black;
-  margin: 10px;
+section {
+  margin: 20px;
 }
 
 h2 {
@@ -108,13 +106,30 @@ section .rightSection {
   align-items: center;
 }
 
+.rightSection button {
+  width: 50%;
+  padding: 4px;
+  color: var(--black);
+  background-color: var(--secondary);
+  border: none;
+}
 .iconSection i,
-.rightSection #tempValue {
+.rightSection span {
   font-size: 50px;
 }
 
-span {
-  font-size: 15px;
+.temperature {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.temperature p {
+  margin-right: 10px;
+}
+.temperature a {
+  text-decoration: none;
+  color: var(--white);
 }
 
 @media (max-width: 500px) {
@@ -134,6 +149,7 @@ footer {
   display: flex;
   justify-content: space-around;
   background-color: var(--secondary);
+  padding: 10px;
 }
 
 footer .col {
