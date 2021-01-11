@@ -36,11 +36,11 @@
       <!-- - - - ROW 2 // SECTION - - - -->
       <section class="row">
         <div class="col iconSection">
-          <p><i class="fas fa-cloud-showers-heavy"></i></p>
+          <img src="http://openweathermap.org/img/wn/01n@2x.png" id="icon"></img>
         </div>
         <div class="col rightSection">
           <div class="temperature">
-            <p><span id="tempValue">24</span>ºC</p>
+            <p><span id="tempValue">24</span></p>
             <div class="convert">
               <button><a href="#" id="celsius">ºC</a></button>
               <button><a href="#" id="fah">F</a></button>
@@ -48,8 +48,11 @@
           </div>
 
           <div class="infoSection">
-            <p>Humidity: <span id="humidity"></span></p>
-            <p>Main: <span id="description"></span></p>
+            <ul>
+              <li>Wind speed: <span id="wind"></span></li>
+              <li>Precipitation: <span id="precipitation"></span></li>
+              <li>Description: <span id="description"></span></li>
+            </ul>
           </div>
         </div>
       </section>

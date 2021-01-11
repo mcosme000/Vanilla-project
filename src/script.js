@@ -3,12 +3,21 @@ function showWeather(results) {
   console.log(results.data);
   var city = document.querySelector("#cityName");
   var temp = document.querySelector("#tempValue");
-  var humidity = document.querySelector("#humidity");
+  var wind = document.querySelector("#wind");
+  var icon = document.querySelector("#icon");
+  var precipitation = document.querySelector("#precipitation");
   var description = document.querySelector("#description");
   city.innerHTML = `${results.data.name}`;
-  temp.innerHTML = `${results.data.main.temp}`;
-  humidity.innerHTML = `${results.data.main.humidity}%`;
+  temp.innerHTML = Math.round(results.data.main.temp);
+  wind.innerHTML = Math.round(results.data.wind.speed) + "m/s";
+  //precipitation = `${}`
   description.innerHTML = `${results.data.weather[0].main}`;
+  //change icons depending on the temp. and icon code:
+  var iconCode = `${results.data.weather[0].icon}`;
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+  );
 }
 
 // Convert to Celsius //
@@ -17,7 +26,7 @@ document.querySelector("#celsius").addEventListener("click", function (e) {
   var temperatureElement = document.querySelector("#tempValue");
   var temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
-  temperatureElement.innerHTML = (Math.round(temperature - 32) * 5) / 9;
+  temperatureElement.innerHTML = Math.round((temperature - 32) * 5) / 9;
 });
 
 // Convert to Fahrenheit //
@@ -26,7 +35,7 @@ document.querySelector("#fah").addEventListener("click", function (e) {
   var temperatureElement = document.querySelector("#tempValue");
   var temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round(temperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round((temperature * 9) / 5) + 32;
 });
 
 /* when we click on submit button, everything starts */
