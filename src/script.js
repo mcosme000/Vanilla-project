@@ -24,6 +24,12 @@ function getDate(timestamp) {
   return `${day}, ${hours}:${minutes}`;
 }
 
+//
+
+//
+
+//
+
 function showWeather(results) {
   console.log(results.data);
   var city = document.querySelector("#cityName");
@@ -46,28 +52,55 @@ function showWeather(results) {
 
   let date = document.querySelector("#date");
   date.innerHTML = getDate(results.data.dt * 1000);
+
+  celsiusTemperature = results.data.main.temp;
 }
+
+//
+
+// - - - FUNCTIONS TO CONVERT TEMPERATURE VALUE - - - //
+
+// Convert to Fahrenheit //
+document.querySelector("#fah").addEventListener("click", function (e) {
+  var temperatureElement = document.querySelector("#tempValue");
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+});
 
 // Convert to Celsius //
 document.querySelector("#celsius").addEventListener("click", function (e) {
   e.preventDefault();
   var temperatureElement = document.querySelector("#tempValue");
-  var temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((temperature - 32) * 5) / 9;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  document.querySelector("#celsius").color = "yellow";
 });
 
-// Convert to Fahrenheit //
-document.querySelector("#fah").addEventListener("click", function (e) {
-  e.preventDefault();
-  var temperatureElement = document.querySelector("#tempValue");
-  var temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5) + 32;
-});
+let celsiusTemperature = null;
+//
 
-/* - - - DATE JAVASCRIPT */
+/* ABOUT THE TEMPERATURE CONVERSION ! ! ! ! 
+①　First I create a GLOBAL VARIABLE (outside all the functions)
+let celsiusTemperature = null. 
 
+② When we search for the city and the function getWeather is executed, 
+that celsiusTemperature variable is updated with the value 
+(resuts.data.main.temp)
+
+③ We use that value to get the fahrenheit data.
+Since celsiusTemperature variable doesn't change for the city, 
+that value will be the same. 
+So it doesn't matter how many times we click on fahrenheit button, 
+IT WON'T CHANGE. 
+
+④ To get the fahrenheit back to celsius, we just say that
+temperatue = celsiusTemperature. 
+*/
+
+//
+
+//
+
+// - - - SUBMIT BUTTON EVENT - - - //
 /* when we click on submit button, everything starts */
 document.querySelector("#search-form").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -76,6 +109,10 @@ document.querySelector("#search-form").addEventListener("submit", function (e) {
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 });
+
+//
+
+//
 
 // - - - - -  GEOLOCATION BUTTON - - - - - //
 
