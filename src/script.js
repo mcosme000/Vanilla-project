@@ -1,11 +1,36 @@
 /* - - - WEATHER API - - - */
+
+function getDate(timestamp) {
+  let now = new Date(timestamp);
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  var days = [
+    "Sunday",
+    "Monday",
+    "Thuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  var day = days[now.getDay()];
+  return `${day}, ${hours}:${minutes}`;
+}
+
 function showWeather(results) {
   console.log(results.data);
   var city = document.querySelector("#cityName");
   var temp = document.querySelector("#tempValue");
   var wind = document.querySelector("#wind");
   var icon = document.querySelector("#icon");
-  var precipitation = document.querySelector("#precipitation");
+  // var precipitation = document.querySelector("#precipitation");
   var description = document.querySelector("#description");
   city.innerHTML = `${results.data.name}`;
   temp.innerHTML = Math.round(results.data.main.temp);
@@ -16,8 +41,11 @@ function showWeather(results) {
   var iconCode = `${results.data.weather[0].icon}`;
   icon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+    `https://openweathermap.org/img/wn/${iconCode}@2x.png`
   );
+
+  let date = document.querySelector("#date");
+  date.innerHTML = getDate(results.data.dt * 1000);
 }
 
 // Convert to Celsius //
@@ -37,6 +65,8 @@ document.querySelector("#fah").addEventListener("click", function (e) {
   temperature = Number(temperature);
   temperatureElement.innerHTML = Math.round((temperature * 9) / 5) + 32;
 });
+
+/* - - - DATE JAVASCRIPT */
 
 /* when we click on submit button, everything starts */
 document.querySelector("#search-form").addEventListener("submit", function (e) {

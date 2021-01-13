@@ -110,32 +110,26 @@ section .rightSection {
   align-items: center;
 }
 
-.rightSection button {
-  width: 50%;
-  padding: 4px;
-  color: var(--black);
-  background-color: var(--secondary);
-  border: none;
-}
-
 .rightSection span {
   font-size: 50px;
 }
 
 .temperature {
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-.temperature p {
-  margin-right: 10px;
-}
-.temperature a {
-  text-decoration: none;
-  color: var(--white);
-  display: inline;
+.rightSection button {
+  padding: 5px;
+  width: 45%;
+  color: var(--black);
+  background-color: var(--secondary);
+  border: none;
+  display: inline-block;
 }
 
 .infoSection li {
