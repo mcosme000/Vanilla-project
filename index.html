@@ -19,13 +19,9 @@
   </head>
   <body>
     <div class="container">
-      <h2>Vanilla weather app</h2>
-      <!-- - - - ROW 1 // HEADER - - - -->
+      <h1>Weather app</h1>
+      <!-- - - - ROW 1 // HEADER (contains search form)- - - -->
       <header class="row">
-        <div class="col city">
-          <h3 id="cityName">City</h3>
-          <p id="date">Local time</p>
-        </div>
         <div class="col form">
           <form action="" id="search-form">
             <input type="text" placeholder="Search for a city" id="input" />
@@ -33,29 +29,42 @@
           </form>
         </div>
       </header>
-      <!-- - - - ROW 2 // SECTION - - - -->
+
+      <!-- - - - ROW 2 // SECTION (contains temp values and icon)- - - -->
       <section class="row">
-        <div class="col iconSection">
-          <img src="https://openweathermap.org/img/wn/01n@2x.png" id="icon"></img>
-        </div>
-        <div class="col rightSection">
-          <div class="temperature">
-            <p><span id="tempValue">24</span></p>
-            <div class="convert">
-              <a href="#" id="celsius" class="active">ºC</p> | 
-              <a href="#" id="fah">F</a>
+          <div class="col temp">
+            <p><span id="tempValue">24</span><span><a href="#" id="celsius" class="active">ºC</a> |<a href="#" id="fa">F</a> </span></p>
+            <div class="tempM">
+              <ul>
+                <li>MAX <span id="tempmax"></span></li>
+                <li>MIN <span id="tempmin"></span></li>
+              </ul>
             </div>
           </div>
+        <div class="col icon">
+          <img src="https://openweathermap.org/img/wn/01n@2x.png" id="icon"></img>
+        </div>
+      </section>
 
+      
+      <!-- - - - ROW // SECTION (city and weather info)- - - -->
+      <section class="row">
+        <div class="col city">
+          <p id="cityName">City</p>
+          <p id="date">Local time</p>
+          <p><span id="description"></span></p>
+        </div>
+      
+        <div class="col values">
           <div class="infoSection">
             <ul>
               <li>Wind speed: <span id="wind"></span></li>
               <li>Precipitation: <span id="precipitation"></span></li>
-              <li>Description: <span id="description"></span></li>
             </ul>
           </div>
         </div>
       </section>
+
       <!-- - - - ROW 3 // FOOTER - - - -->
       <footer class="row">
         <div class="col d-flex flex-column align-items-center">
@@ -86,14 +95,14 @@
       </footer>
       <!-- - - - ROW 4 - - - -->
       <div class="row links">
-        <div class="col location">
+        <!-- <div class="col location">
           <a href="#" class="geolocation" id="geolocation">📍Geolocation</a>
           <p id="locationInfo"></p>
         </div>
-        <div class="col github">
-          <a href="https://github.com/mcosme000"
-            ><i class="fab fa-github"></i
-          ></a>
+      -->
+        <div class="col">
+          <p><a href="https://github.com/mcosme000">Open-source code</a> by Maria C.</p>
+          <p><i class="fab fa-twitter"></i>@verymerii</p>
         </div>
       </div>
     </div>

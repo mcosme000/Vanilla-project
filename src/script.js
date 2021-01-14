@@ -36,13 +36,17 @@ function showWeather(results) {
   var temp = document.querySelector("#tempValue");
   var wind = document.querySelector("#wind");
   var icon = document.querySelector("#icon");
+  var maxTemp = document.querySelector("#tempmax");
+  var minTemp = document.querySelector("#tempmin");
   // var precipitation = document.querySelector("#precipitation");
   var description = document.querySelector("#description");
   city.innerHTML = `${results.data.name}`;
   temp.innerHTML = Math.round(results.data.main.temp);
+  maxTemp.innerHTML = Math.round(results.data.main.temp_max);
+  minTemp.innerHTML = Math.round(results.data.main.temp_min);
   wind.innerHTML = Math.round(results.data.wind.speed) + "m/s";
   //precipitation = `${}`
-  description.innerHTML = `${results.data.weather[0].main}`;
+  description.innerHTML = `${results.data.weather[0].description}`;
   //change icons depending on the temp. and icon code:
   var iconCode = `${results.data.weather[0].icon}`;
   icon.setAttribute(
@@ -61,7 +65,7 @@ function showWeather(results) {
 // - - - FUNCTIONS TO CONVERT TEMPERATURE VALUE - - - //
 
 // Convert to Fahrenheit //
-document.querySelector("#fah").addEventListener("click", function (e) {
+document.querySelector("#fa").addEventListener("click", function (e) {
   var temperatureElement = document.querySelector("#tempValue");
   let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
@@ -124,7 +128,7 @@ document.querySelector("#search-form").addEventListener("submit", function (e) {
   axios.get().then(showLocation);
 });
 */
-
+/*
 function getLocation(position) {
   console.log(position);
 
@@ -152,3 +156,4 @@ function getLocation(position) {
 document.querySelector("#geolocation").addEventListener("click", function () {
   navigator.geolocation.getCurrentPosition(getLocation);
 });
+*/
