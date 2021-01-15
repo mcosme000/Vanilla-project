@@ -104,10 +104,10 @@ function showForecast(forecast) {
   );
 
   document.querySelector("#temp2-max").innerHTML = Math.round(
-    forecast.data.list[1].main.temp_max
+    forecast.data.list[2].main.temp_max
   );
   document.querySelector("#temp2-min").innerHTML = Math.round(
-    forecast.data.list[1].main.temp_min
+    forecast.data.list[2].main.temp_min
   );
 
   // 3 //
@@ -123,10 +123,10 @@ function showForecast(forecast) {
   );
 
   document.querySelector("#temp3-max").innerHTML = Math.round(
-    forecast.data.list[1].main.temp_max
+    forecast.data.list[3].main.temp_max
   );
   document.querySelector("#temp3-min").innerHTML = Math.round(
-    forecast.data.list[1].main.temp_min
+    forecast.data.list[3].main.temp_min
   );
 
   // 4 //
@@ -141,10 +141,10 @@ function showForecast(forecast) {
   );
 
   document.querySelector("#temp4-max").innerHTML = Math.round(
-    forecast.data.list[1].main.temp_max
+    forecast.data.list[4].main.temp_max
   );
   document.querySelector("#temp4-min").innerHTML = Math.round(
-    forecast.data.list[1].main.temp_min
+    forecast.data.list[4].main.temp_min
   );
 
   // 5 //
@@ -160,10 +160,10 @@ function showForecast(forecast) {
   );
 
   document.querySelector("#temp5-max").innerHTML = Math.round(
-    forecast.data.list[1].main.temp_max
+    forecast.data.list[5].main.temp_max
   );
   document.querySelector("#temp5-min").innerHTML = Math.round(
-    forecast.data.list[1].main.temp_min
+    forecast.data.list[5].main.temp_min
   );
 }
 
