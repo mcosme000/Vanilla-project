@@ -145,7 +145,7 @@ section .icon {
 }
 
 section .icon img {
-  width: 200px;
+  width: 100%;
 }
 
 /* - - -  SECTION 2. city and weather information - - - */
@@ -184,6 +184,10 @@ section .city {
   .values {
     width: 50%;
     justify-content: space-around;
+  }
+
+  section {
+    margin-bottom: 10px;
   }
   .city p,
   .values li {
