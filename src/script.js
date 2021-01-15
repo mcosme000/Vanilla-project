@@ -35,17 +35,17 @@ function showWeather(results) {
   var city = document.querySelector("#cityName");
   var temp = document.querySelector("#tempValue");
   var wind = document.querySelector("#wind");
+  var humidity = document.querySelector("#humidity");
   var icon = document.querySelector("#icon");
   var maxTemp = document.querySelector("#tempmax");
   var minTemp = document.querySelector("#tempmin");
-  // var precipitation = document.querySelector("#precipitation");
   var description = document.querySelector("#description");
   city.innerHTML = `${results.data.name}`;
   temp.innerHTML = Math.round(results.data.main.temp);
   maxTemp.innerHTML = Math.round(results.data.main.temp_max);
   minTemp.innerHTML = Math.round(results.data.main.temp_min);
   wind.innerHTML = Math.round(results.data.wind.speed) + "m/s";
-  //precipitation = `${}`
+  humidity.innerHTML = results.data.main.humidity + "%";
   description.innerHTML = `${results.data.weather[0].description}`;
   //change icons depending on the temp. and icon code:
   var iconCode = `${results.data.weather[0].icon}`;
