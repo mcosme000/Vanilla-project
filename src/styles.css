@@ -51,7 +51,7 @@ header .form {
 form {
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
 }
 
 @media (max-width: 500px) {
@@ -83,15 +83,15 @@ form input[type="text"]:focus {
 }
 
 form input[type="submit"] {
-  padding: 3px;
+  padding: 10px;
   width: 30%;
   border: none;
-  border-radius: 3px;
+  border-radius: 15px;
   background-color: var(--white);
   color: var(--black);
 }
 
-form [input="submit"]:hover {
+form input[type="submit"]:hover {
   cursor: pointer;
 }
 form input[type="submit"]:focus {
@@ -142,10 +142,11 @@ section .icon {
   width: 40%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 section .icon img {
-  width: 100%;
+  width: 90%;
 }
 
 /* - - -  SECTION 2. city and weather information - - - */
