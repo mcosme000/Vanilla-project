@@ -62,6 +62,95 @@ function showWeather(results) {
 
 //
 
+// - - - FORECAST - - - //
+
+function showForecast(forecast) {
+  console.log(forecast.data);
+
+  // 1 //
+  var day1 = document.querySelector("#day1");
+  var icon1 = document.querySelector("#icon1");
+  var iconCode1 = `${forecast.data.list[1].weather[0].icon}`;
+  icon1.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${iconCode1}@2x.png`
+  );
+
+  let day1fixed = forecast.data.list[1].dt_txt;
+  day1.innerHTML = day1fixed;
+
+  document.querySelector("#temp1-max").innerHTML = Math.round(
+    forecast.data.list[1].main.temp_max
+  );
+  document.querySelector("#temp1-min").innerHTML = Math.round(
+    forecast.data.list[1].main.temp_min
+  );
+
+  // 2 //
+
+  var icon2 = document.querySelector("#icon2");
+  var iconCode2 = `${forecast.data.list[2].weather[0].icon}`;
+  icon2.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${iconCode2}@2x.png`
+  );
+  document.querySelector("#day2").innerHTML = forecast.data.list[2].dt;
+  document.querySelector("#temp2-max").innerHTML = Math.round(
+    forecast.data.list[1].main.temp_max
+  );
+  document.querySelector("#temp2-min").innerHTML = Math.round(
+    forecast.data.list[1].main.temp_min
+  );
+
+  // 3 //
+
+  var icon3 = document.querySelector("#icon3");
+  var iconCode3 = `${forecast.data.list[3].weather[0].icon}`;
+  icon3.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${iconCode3}@2x.png`
+  );
+  document.querySelector("#day3").innerHTML = forecast.data.list[3].dt;
+  document.querySelector("#temp3-max").innerHTML = Math.round(
+    forecast.data.list[1].main.temp_max
+  );
+  document.querySelector("#temp3-min").innerHTML = Math.round(
+    forecast.data.list[1].main.temp_min
+  );
+
+  // 4 //
+
+  var icon4 = document.querySelector("#icon4");
+  var iconCode4 = `${forecast.data.list[4].weather[0].icon}`;
+  icon4.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${iconCode4}@2x.png`
+  );
+  document.querySelector("#day4").innerHTML = forecast.data.list[4].dt;
+  document.querySelector("#temp4-max").innerHTML = Math.round(
+    forecast.data.list[1].main.temp_max
+  );
+  document.querySelector("#temp4-min").innerHTML = Math.round(
+    forecast.data.list[1].main.temp_min
+  );
+
+  // 5 //
+
+  var icon5 = document.querySelector("#icon5");
+  var iconCode5 = `${forecast.data.list[5].weather[0].icon}`;
+  icon5.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${iconCode5}@2x.png`
+  );
+  document.querySelector("#day5").innerHTML = forecast.data.list[5].dt;
+  document.querySelector("#temp5-max").innerHTML = Math.round(
+    forecast.data.list[1].main.temp_max
+  );
+  document.querySelector("#temp5-min").innerHTML = Math.round(
+    forecast.data.list[1].main.temp_min
+  );
+}
+
 // - - - FUNCTIONS TO CONVERT TEMPERATURE VALUE - - - //
 
 // Convert to Fahrenheit //
@@ -112,8 +201,11 @@ document.querySelector("#search-form").addEventListener("submit", function (e) {
   var apiKey = "36c8bd885e1b84703cd48d295c95399d";
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
-});
 
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+});
+s;
 //
 
 //

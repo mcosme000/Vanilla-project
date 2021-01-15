@@ -216,8 +216,8 @@ footer .col p {
   padding: 5px;
 }
 
-footer .col i {
-  font-size: 30px;
+footer .col img {
+  width: 50px;
 }
 
 @media (max-width: 768px) {
