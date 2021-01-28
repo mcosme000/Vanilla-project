@@ -21,18 +21,16 @@
     <div class="container">
       <h1>Weather app</h1>
       <!-- - - - ROW 1 // HEADER (contains search form)- - - -->
-      <header class="row">
-        <div class="col form">
-          <form action="" id="search-form">
+      <header>
+          <form id="search-form">
             <input type="text" placeholder="Search for a city" id="input" />
             <input type="submit" value="Search" />
           </form>
-        </div>
       </header>
 
       <!-- - - - ROW 2 // SECTION (contains temp values and icon)- - - -->
-      <section class="row">
-          <div class="col temp">
+      <section>
+          <div class="temp">
             <p><span id="tempValue">24</span><span><a href="#" id="celsius" class="active">ºC</a> |<a href="#" id="fa">F</a> </span></p>
             <div class="tempM">
               <ul>
@@ -41,21 +39,21 @@
               </ul>
             </div>
           </div>
-        <div class="col icon">
+        <div class="icon">
           <img src="https://openweathermap.org/img/wn/01n@2x.png" id="icon"></img>
         </div>
       </section>
 
       
       <!-- - - - ROW // SECTION (city and weather info)- - - -->
-      <section class="row">
-        <div class="col city">
+      <section>
+        <div class="city">
           <p id="cityName">City</p>
           <p id="date">Local time</p>
           <p><span id="description"></span></p>
         </div>
       
-        <div class="col values">
+        <div class="values">
           <div class="infoSection">
             <ul>
               <li>Wind speed: <span id="wind"></span></li>
@@ -66,32 +64,32 @@
       </section>
 
       <!-- - - - ROW 3 // FOOTER - - - -->
-      <footer class="row">
-        <div class="col d-flex flex-column align-items-center">
+      <footer>
+        <div class="forecast">
           <p id="day1">9:00</p>
           <img src="https://openweathermap.org/img/wn/01n@2x.png" id="icon1"></img>
           <p id="temp1"><strong><span id="temp1-max">10</span>º </strong> <span id="temp1-min">8</span>º</p>
         </div>
 
-        <div class="col d-flex flex-column align-items-center">
+        <div class="forecast">
           <p id="day2">12:00</p>
           <img src="https://openweathermap.org/img/wn/01n@2x.png" id="icon2"></img>
           <p id="temp2"><strong><span id="temp2-max">10</span>º </strong> <span id="temp2-min">8</span>º</p>
         </div>
 
-        <div class="col d-flex flex-column align-items-center">
+        <div class="forecast">
           <p id="day3">15:00</p>
           <img src="https://openweathermap.org/img/wn/01n@2x.png" id="icon3"></img>
           <p id="temp3"><strong><span id="temp3-max">10</span>º </strong> <span id="temp3-min">8</span>º</p>
         </div>
 
-        <div class="col d-flex flex-column align-items-center">
+        <div class="forecast">
           <p id="day4">18.00</p>
           <img src="https://openweathermap.org/img/wn/01n@2x.png" id="icon4"></img>
           <p id="temp4"><strong><span id="temp4-max">10</span>º </strong> <span id="temp4-min">8</span>º</p>
         </div>
 
-        <div class="col d-flex flex-column align-items-center">
+        <div class="forecast">
           <p id="day5">21:00</p>
           <img src="https://openweathermap.org/img/wn/01n@2x.png" id="icon5"></img>
           <p id="temp5"><strong><span id="temp5-max">10</span>º </strong> <span id="temp5-min">8</span>º</p>
