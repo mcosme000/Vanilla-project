@@ -7,6 +7,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: var(--white);
+  font-size: 18px;
 }
 
 :root {
@@ -15,73 +16,73 @@ body {
   --background: #00509d;
   --primary: #ffd500;
   --secondary: #00296b;
+  --terciary: #011941;
 }
 .container {
   width: 80%;
-  max-width: 600px;
+  max-width: 500px;
   margin: 20px auto;
   background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
-  text-align: center;
-  padding: 10px 0px;
+  font-size: 40px;
+  text-transform: uppercase;
+  color: var(--secondary);
 }
+
+li {
+  list-style: none;
+}
+
 @media (max-width: 480px) {
   .container {
     width: 100%;
     margin: 0px;
+    font-size: 15px;
   }
 }
 
 /* - - -  HEADER  - - - */
 
 header {
-  padding: 20px 40px;
+  width: 100%;
+  padding: 20px;
 }
 
 form {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--white);
+  font-size: 40px;
 }
 
 @media (max-width: 500px) {
   header {
     flex-direction: column-reverse;
   }
-
-  header .form {
-    width: 100%;
-  }
 }
 
 form input[type="text"] {
   padding: 10px;
-  width: 60%;
   border: none;
-  border-bottom: 1px solid var(--white);
-  background-color: var(--background);
-  color: var(--white);
-  font-size: 20px;
+  color: var(--black);
 }
-form input[type="text"]:focus {
+form input[type="text"]:focus,
+form button {
   outline: none;
-  border-bottom: 1px solid var(--primary);
 }
 
-::placeholder {
-  color: rgba(250, 250, 250, 0.5);
-}
-
-form input[type="submit"] {
+form button {
   padding: 10px;
-  width: 30%;
   border: none;
-  border-radius: 15px;
   background-color: var(--white);
   color: var(--black);
+  cursor: pointer;
 }
 
 form input[type="submit"]:hover {
@@ -93,17 +94,18 @@ form input[type="submit"]:focus {
 
 /* - - -  SECTION 1. temperature and icon - - - */
 
-section {
+.temperatureSection {
+  width: 80%;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
-section .temp {
-  width: 40%;
-  margin-left: 20px;
+section .temp,
+section .icon {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  margin: 0px;
 }
 
 .temp #tempValue {
@@ -111,7 +113,7 @@ section .temp {
 }
 
 .temp span {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .temp a {
@@ -124,78 +126,58 @@ section .temp {
   color: var(--primary);
 }
 
-.temp {
-  margin-left: 5px;
-}
-
-.temp ul {
-  list-style: none;
-  text-align: left;
-}
 section .icon {
-  width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 section .icon img {
-  width: 90%;
+  width: 150px;
 }
 
 /* - - -  SECTION 2. city and weather information - - - */
 
-section .city,
-section .values {
-  display: flex;
-  width: 40%;
-}
-
-section .city {
-  margin-left: 20px;
+.citySection {
+  width: 80%;
+  margin: 5px 0px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
 }
 
-.city #cityName {
-  text-transform: uppercase;
-  font-size: 30px;
+.citySection .information {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
-.city #description {
+.information div {
+  width: 50%;
+}
+
+.information #description {
   text-transform: capitalize;
 }
 
-.values li {
-  list-style: none;
-}
-
-@media (max-width: 500px) {
-  .temp,
-  .icon,
-  .city,
-  .values {
-    width: 50%;
-    justify-content: space-around;
-  }
-
-  section {
-    margin-bottom: 10px;
-  }
+@media (max-width: 480px) {
   .city p,
   .values li {
     font-size: 15px;
   }
 
-  .city {
-    margin-left: 0px;
+  .temperatureSection,
+  .citySection {
+    width: 90%;
   }
 }
 
 /* - - -  FOOTER  - - - */
 
 footer {
+  width: 100%;
   margin-top: 30px;
   display: flex;
   justify-content: space-around;
@@ -226,7 +208,7 @@ footer .forecast img {
     background-color: var(--secondary);
   }
   footer .forecast p {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   footer .forecast i {
@@ -237,7 +219,7 @@ footer .forecast img {
 /* - - -  LINKS - - - */
 
 .links {
-  margin: 0px;
+  width: 100%;
   padding: 10px;
   background-color: var(--white);
   display: flex;

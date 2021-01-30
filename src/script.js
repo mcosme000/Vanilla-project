@@ -4,7 +4,7 @@ function getDate(timestamp) {
   let now = new Date(timestamp);
   let hours = now.getHours();
   let minutes = now.getMinutes();
-  var days = [
+  const days = [
     "Sunday",
     "Monday",
     "Thuesday",
@@ -20,7 +20,7 @@ function getDate(timestamp) {
     hours = `0${hours}`;
   }
 
-  var day = days[now.getDay()];
+  const day = days[now.getDay()];
   return `${day}, ${hours}:${minutes}`;
 }
 
@@ -32,18 +32,21 @@ function getDate(timestamp) {
 
 function showWeather(results) {
   console.log(results.data);
-  var city = document.querySelector("#cityName");
-  var temp = document.querySelector("#tempValue");
-  var wind = document.querySelector("#wind");
-  var humidity = document.querySelector("#humidity");
-  var icon = document.querySelector("#icon");
-  var maxTemp = document.querySelector("#tempmax");
-  var minTemp = document.querySelector("#tempmin");
-  var description = document.querySelector("#description");
+  const city = document.querySelector("#cityName");
+  const temp = document.querySelector("#tempValue");
+  const wind = document.querySelector("#wind");
+  const humidity = document.querySelector("#humidity");
+  const icon = document.querySelector("#icon");
+  const maxTemp = document.querySelector("#tempmax");
+  const minTemp = document.querySelector("#tempmin");
+  const description = document.querySelector("#description");
+  const feelslike = document.querySelector("#feelTemp");
+  const emoji = document.querySelector("#emoji");
   city.innerHTML = `${results.data.name}`;
   temp.innerHTML = Math.round(results.data.main.temp);
   maxTemp.innerHTML = Math.round(results.data.main.temp_max);
   minTemp.innerHTML = Math.round(results.data.main.temp_min);
+  feelslike.innerHTML = Math.round(results.data.main.feels_like) + "ºC";
   wind.innerHTML = Math.round(results.data.wind.speed) + "m/s";
   humidity.innerHTML = results.data.main.humidity + "%";
   description.innerHTML = `${results.data.weather[0].description}`;
@@ -58,6 +61,11 @@ function showWeather(results) {
   date.innerHTML = getDate(results.data.dt * 1000);
 
   celsiusTemperature = results.data.main.temp;
+  maxCelsiusTemp = results.data.main.temp_max;
+  minCelsiusTemp = results.data.main.temp_min;
+
+  //delete the input element when submit form
+  document.querySelector("#input").value = "";
 }
 
 //
@@ -171,17 +179,29 @@ function showForecast(forecast) {
 
 // Convert to Fahrenheit //
 document.querySelector("#fa").addEventListener("click", function (e) {
-  var temperatureElement = document.querySelector("#tempValue");
-  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  const temperatureElement = document.querySelector("#tempValue");
+  const fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+  //convert min temp to fahrenheit:
+  const minTemp = document.querySelector("#tempmin");
+  minTemp.innerHTML = Math.round((minCelsiusTemp * 9) / 5 + 32);
+  //convert max temp to fahrenheit:
+  const maxTemp = document.querySelector("#tempmax");
+  maxTemp.innerHTML = Math.round((maxCelsiusTemp * 9) / 5 + 32);
 });
 
 // Convert to Celsius //
 document.querySelector("#celsius").addEventListener("click", function (e) {
   e.preventDefault();
-  var temperatureElement = document.querySelector("#tempValue");
+  const temperatureElement = document.querySelector("#tempValue");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   document.querySelector("#celsius").color = "yellow";
+  //convert min temp to celsius:
+  const minTemp = document.querySelector("#tempmin");
+  minTemp.innerHTML = Math.round(minCelsiusTemp);
+  //convert max temp to celsius:
+  const maxTemp = document.querySelector("#tempmax");
+  maxTemp.innerHTML = Math.round(maxCelsiusTemp);
 });
 
 let celsiusTemperature = null;
@@ -211,16 +231,18 @@ temperatue = celsiusTemperature.
 
 // - - - SUBMIT BUTTON EVENT - - - //
 /* when we click on submit button, everything starts */
-document.querySelector("#search-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-  var city = document.querySelector("#input").value;
-  var apiKey = "36c8bd885e1b84703cd48d295c95399d";
-  var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showWeather);
+document
+  .querySelector("#submit-button")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
+    var city = document.querySelector("#input").value;
+    var apiKey = "36c8bd885e1b84703cd48d295c95399d";
+    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showWeather);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showForecast);
-});
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showForecast);
+  });
 //
 
 //
