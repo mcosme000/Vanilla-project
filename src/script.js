@@ -41,7 +41,6 @@ function showWeather(results) {
   const minTemp = document.querySelector("#tempmin");
   const description = document.querySelector("#description");
   const feelslike = document.querySelector("#feelTemp");
-  const emoji = document.querySelector("#emoji");
   city.innerHTML = `${results.data.name}`;
   temp.innerHTML = Math.round(results.data.main.temp);
   maxTemp.innerHTML = Math.round(results.data.main.temp_max);
